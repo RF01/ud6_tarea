@@ -31,3 +31,8 @@ Route::get('producto','App\Http\Controllers\PagesController@producto')->name('pr
 
 Route::get('intro','App\Http\Controllers\PagesController@intro')->name('intro_ruta');
 
+Route::post('guardar','App\Http\Controllers\PagesController@guardar')->name('guardar_ruta');
+
+Route::get('cesta','App\Http\Controllers\PagesController@cesta')->name('cesta_ruta');
+
+ Route::post('cantidad','App\Http\Controllers\PagesController@anadirCantidad')->name('cantidad_ruta');

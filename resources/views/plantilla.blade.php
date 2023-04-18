@@ -28,6 +28,7 @@
              --}}
              <a href="{{route('intro_ruta')}}" class="btn btn-primary"> Intro</a> 
             <a href="{{route('producto_ruta')}}" class="btn btn-primary">Producto</a>
+            <a href="{{route('cesta_ruta')}}" class="btn btn-primary">Cesta</a>
         </div>
 
         <div class="container">
