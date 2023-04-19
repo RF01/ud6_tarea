@@ -35,4 +35,6 @@ Route::post('guardar','App\Http\Controllers\PagesController@guardar')->name('gua
 
 Route::get('cesta','App\Http\Controllers\PagesController@cesta')->name('cesta_ruta');
 
+Route::post('guardar_cesta','App\Http\Controllers\PagesController@guardarCesta')->name('guardar_cesta_ruta');
+
  Route::post('cantidad','App\Http\Controllers\PagesController@anadirCantidad')->name('cantidad_ruta');

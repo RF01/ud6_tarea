@@ -13,18 +13,19 @@ return new class extends Migration
     {
         Schema::table('cestas', function (Blueprint $table) {
             //
-            $table->integer('tipo_producto');
-            $table->string('nombre');
-            $table->float('pvp');
-            $table->float('cantidad');
+            $table->unsignedBigInteger('id_producto');
+ 
+            $table->foreign('id_producto')->references('id')->on('productos');
         });
     }
 
-   /**
+    /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('cestas');
+        Schema::table('cestas', function (Blueprint $table) {
+            //
+        });
     }
 };

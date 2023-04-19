@@ -4,7 +4,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Tipo Producto</th>
+                    {{-- <th>Tipo Producto</th> --}}
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Precio</th>
@@ -15,17 +15,23 @@
 
                 @foreach ($tablaProductos as $item)
                 <form 
-                action= " {{route('producto_ruta')}} "
+                action= " {{route('guardar_cesta_ruta')}} "
                  method="POST">
                  
                  @csrf  {{-- justo aqui --}} 
 
                   <tr>
-                      <td>{{$item->tipo_producto}}</td>
+                      {{-- <td>{{$item->tipo_producto}}</td> --}}
                       <td>{{$item->nombre}}</td>
                       <td>{{$item->descripcion}}</td>
                       <td>{{$item->pvp}}</td>
-                      <td><input type="hidden" name="id" value="{{$item->id}}" ></td>
+                      <td><input type="hidden" name="id_producto" value="{{$item->id}}" ></td>
+                      <td><input type="hidden" name="tipo_producto" value="{{$item->tipo_producto}}" ></td>
+                      <td><input type="hidden" name="nombre" value="{{$item->nombre}}" ></td>
+                      {{-- <td><input type="hidden" name="descripcion" value="{{$item->descripcion}}" ></td> --}}
+                      <td><input type="hidden" name="pvp" value="{{$item->pvp}}" ></td>
+                      <td><input type="hidden" name="cantidad" value="1" ></td>
+                   
                        {{--
                       <td><input type="text" name="pvp" ></td>
                       <td><button type="submit" name="accion" value="enviar" class="btn btn-primary">Enviar</button></td> --}}
@@ -39,7 +45,7 @@
             </tbody> 
  
         </table>
-       {{-- contador de registros:  {{$total}} --}}
+       contador de registros:  {{$tablaProductosTotal}}
     </div>
     <div class=container>
        <form 
@@ -50,7 +56,13 @@
           <div class="form-group row">
             <label for="tipoProducto" class="col-sm-2 col-form-label">Tipo Producto</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="tipo_producto" name="tipo_producto" placeholder="Tipo de producto">
+              <select  id="tipo_producto" name="tipo_producto" class="form-select" aria-label="Default select example">
+                {{-- <option selected>Tipo Producto</option> --}}
+                <option value="1">Infusiones</option>
+                <option value="2">Refrescos</option>
+                <option value="3">Con Alcohol</option>
+              </select>
+              {{-- <input type="text" class="form-control" id="tipo_producto" name="tipo_producto" placeholder="Tipo de producto"> --}}
             </div>
           </div>
          <div class="form-group row">
