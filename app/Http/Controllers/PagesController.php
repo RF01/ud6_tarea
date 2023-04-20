@@ -9,14 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
-    //
-    public function inicio(){
-        return view('welcome');
-    }
+   
 
     //
     public function intro(){
-        return view('intro_vista');
+        $bebidasRecomendadas = [
+            'Cerveza IPA',
+            'Vino tinto Malbec',
+            'Whisky escocés',
+            'Gin & Tonic',
+            'Margarita',
+        ];
+
+
+        return view('intro_vista', compact('bebidasRecomendadas'));
     }
 
     //
@@ -78,11 +84,19 @@ class PagesController extends Controller
     public function anadirCantidad(Request $request){
         $id = $request->input('id');
         $cantidad = $request->input('cantidad');
-        $pvp = $request->input('pvp');
+        // $pvp = $request->input('pvp');
 
         
 
         DB::table('cestas')->where('id',$id)->update(['cantidad'=>$cantidad]);
+        
+       $tablaCestaCant  = DB::table('cestas')->where('id',$id)->value('cantidad');
+        
+
+        if($tablaCestaCant < 1){
+
+            DB::table('cestas')->where('id',$id)->delete();
+        }
         $tablaCesta = Cesta::all();
 
         // $tablaCestaTotal = Cesta::all()->sum($pvp * $cantidad);
@@ -94,7 +108,7 @@ class PagesController extends Controller
 
         // $tablaCestaTotal = DB::table('cestas')->select( 'pvp','cantidad')->get();
         $tablaCestaPvp = DB::table('cestas')->select( 'pvp')->get();
-        $tablaCestaCant = DB::table('cestas')->select( 'cantidad')->get();
+       
     //    (float)$tablaCestaTotal = (float) $tablaCestaPvp *  (float)$tablaCestaCant ;
     //    $tablaCestaTotal =  $tablaCestaPvp + $tablaCestaCant ;
 
@@ -105,5 +119,22 @@ class PagesController extends Controller
 
     return view('cesta_vista', compact('tablaCesta','tablaCestaTotal'));
 
+    }
+
+    public function buscar(Request $request)
+    {
+        // $nombre = $request->input('nombre');
+        // $productos = Producto::where('nombre', 'LIKE', '%' . $nombre . '%')->get();
+        // return view('buscar_vista', ['productos' => $productos]);
+
+        if ($request->has('nombre')) {
+            $nombre = $request->input('nombre');
+            $pvp = $request->input('pvp');
+            $productos = Producto::where('nombre', 'like', '%'.$nombre.'%')->get();
+            return view('buscar_vista', compact('productos', 'nombre','pvp'));
+            
+        } else {
+            return view('buscar_vista');
+        }
     }
 }

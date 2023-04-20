@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/','App\Http\Controllers\PagesController@inicio');
+// Route::get('/','App\Http\Controllers\PagesController@inicio');
 
 // Route::get('producto', function () {
 //     return view('producto_vista');
@@ -29,7 +29,7 @@ Route::get('producto','App\Http\Controllers\PagesController@producto')->name('pr
 //     return view('intro_vista');
 // })->name('intro_ruta');
 
-Route::get('intro','App\Http\Controllers\PagesController@intro')->name('intro_ruta');
+Route::get('/','App\Http\Controllers\PagesController@intro')->name('intro_ruta');
 
 Route::post('guardar','App\Http\Controllers\PagesController@guardar')->name('guardar_ruta');
 
@@ -38,3 +38,5 @@ Route::get('cesta','App\Http\Controllers\PagesController@cesta')->name('cesta_ru
 Route::post('guardar_cesta','App\Http\Controllers\PagesController@guardarCesta')->name('guardar_cesta_ruta');
 
  Route::post('cantidad','App\Http\Controllers\PagesController@anadirCantidad')->name('cantidad_ruta');
+
+ Route::get('buscar','App\Http\Controllers\PagesController@buscar')->name('buscar_ruta');
