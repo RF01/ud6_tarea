@@ -13,21 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-// Route::get('/','App\Http\Controllers\PagesController@inicio');
-
-// Route::get('producto', function () {
-//     return view('producto_vista');
-// })->name('producto_ruta');
 
 Route::get('producto','App\Http\Controllers\PagesController@producto')->name('producto_ruta');
-
-// Route::get('intro', function () {
-//     return view('intro_vista');
-// })->name('intro_ruta');
 
 Route::get('/','App\Http\Controllers\PagesController@intro')->name('intro_ruta');
 

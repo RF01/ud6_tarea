@@ -9,7 +9,7 @@
                       {{-- <th>Tipo Producto</th> --}}
                       <th>Nombre</th>
                       <th>Descripción</th>
-                      <th>Precio</th>
+                      <th>Precio €</th>
                   </tr>
               </thead>
 
@@ -28,13 +28,10 @@
                         <td><input type="hidden" name="id_producto" value="{{$item->id}}" ></td>
                         <td><input type="hidden" name="tipo_producto" value="{{$item->tipo_producto}}" ></td>
                         <td><input type="hidden" name="nombre" value="{{$item->nombre}}" ></td>
-                        {{-- <td><input type="hidden" name="descripcion" value="{{$item->descripcion}}" ></td> --}}
+                    
                         <td><input type="hidden" name="pvp" value="{{$item->pvp}}" ></td>
                         <td><input type="hidden" name="cantidad" value="1" ></td>
                     
-                        {{--
-                        <td><input type="text" name="pvp" ></td>
-                        <td><button type="submit" name="accion" value="enviar" class="btn btn-primary">Enviar</button></td> --}}
                         <td><button type="submit"  class="btn btn-success">Enviar Carrito</button></td>
                     </tr> 
 
@@ -62,12 +59,12 @@
               <label for="tipoProducto" class="col-sm-2 col-form-label">Tipo Producto</label>
               <div class="col-sm-10">
                 <select  id="tipo_producto" name="tipo_producto" class="form-select" aria-label="Default select example">
-                  {{-- <option selected>Tipo Producto</option> --}}
+               
                   <option value="1">Infusiones</option>
                   <option value="2">Refrescos</option>
                   <option value="3">Con Alcohol</option>
                 </select>
-                {{-- <input type="text" class="form-control" id="tipo_producto" name="tipo_producto" placeholder="Tipo de producto"> --}}
+               
               </div>
             </div>
             
@@ -98,8 +95,6 @@
           </form> 
 
         </section>
-
-
 
     </div>
 

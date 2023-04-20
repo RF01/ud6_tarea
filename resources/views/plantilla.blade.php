@@ -4,28 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title></title>
+        <title>Tarea 06</title>
 
-        <!-- Fonts -->
-        <!-- <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" /> -->
-       
         <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       
-        <!-- Styles -->
-        
+        <!-- Styles -->  
     </head>
     <body>
-        {{-- <h1>Plantilla </h1> --}}
-        {{-- <p>HOLA</p> --}}
+      
         <div class="container">
             
-            {{-- <a href="{{route('intro_ruta')}}" class="btn btn-primary"> Intro</a>
-            <a href="{{route('alumno_ruta')}}" class="btn btn-primary"> Alumno</a>
-            <a href="{{route('profesor_ruta')}}" class="btn btn-primary" > Profesor</a>
-            <a href="{{route('publi_ruta')}}" class="btn btn-primary" > Publicadas</a>
-             --}}
              <a href="{{route('intro_ruta')}}" class="btn btn-primary"> Inicio</a> 
             <a href="{{route('producto_ruta')}}" class="btn btn-warning">Productos</a>
             <a href="{{route('cesta_ruta')}}" class="btn btn-success">Cesta</a>
@@ -35,7 +24,7 @@
         <div class="container">
             
             
-            @yield('seccion') <!--  Aquí ira el código difente-->
+            @yield('seccion') <!--  Aquí ira el código -->
 
         </div>
 
